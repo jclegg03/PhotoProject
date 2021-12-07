@@ -36,13 +36,31 @@ public class PictureTester
 	  temple.explore();
   }
   
-  /** Method to test the keepOnlyBlue */
+  /** Method to test keepOnlyBlue */
   public static void testKeepOnlyBlue()
   {
 	  Picture gorge = new Picture("gorge.jpg");
 	  gorge.explore();
 	  gorge.keepOnlyBlue();
 	  gorge.explore();
+  }
+  
+  /** Method to test keepOnlyGreen */
+  public static void testKeepOnlyGreen()
+  {
+	  Picture flower = new Picture("flower1.jpg");
+	  flower.explore();
+	  flower.keepOnlyGreen();
+	  flower.explore();
+  }
+  
+  /** Method to test keepOnlyRed */
+  public static void testKeepOnlyRed()
+  {
+	  Picture flower = new Picture("flower2.jpg");
+	  flower.explore();
+	  flower.keepOnlyRed();
+	  flower.explore();
   }
   
   /** Method to test mirrorVertical */
@@ -89,8 +107,8 @@ public class PictureTester
 //    testZeroBlue();
 //    testZeroRed();
 //	  testZeroGreen();
-    testKeepOnlyBlue();
-//    testKeepOnlyRed();
+//    testKeepOnlyBlue();
+    testKeepOnlyRed();
 //    testKeepOnlyGreen();
 //    testNegate();
 //    testGrayscale();
