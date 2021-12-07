@@ -84,7 +84,10 @@ public class PictureTester
   /** Method to test the mirrorBoth */
   public static void testMirrorBoth()
   {
-	  Picture catterpillar = new Picture("caterpillar.jpg");
+	  Picture caterpillar = new Picture("caterpillar.jpg");
+	  caterpillar.explore();
+	  caterpillar.mirrorBoth(Picture.VERTICAL, Picture.LEFT, Picture.TOP);
+	  caterpillar.explore();
   }
   
   /** Method to test mirrorTemple */
@@ -128,8 +131,9 @@ public class PictureTester
 //    testNegate();
 //    testGrayscale();
 //    testFixUnderwater();
-    testMirrorVertical();
-	  testMirrorHorizontal();
+//    testMirrorVertical();
+//	  testMirrorHorizontal();
+	  testMirrorBoth();
 //    testMirrorTemple();
 //    testMirrorArms();
 //    testMirrorGull();

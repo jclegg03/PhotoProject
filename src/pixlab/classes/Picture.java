@@ -17,7 +17,7 @@ import java.util.List; // resolves problem with java.awt.List and java.util.List
  */
 public class Picture extends SimplePicture 
 {
-  public static final boolean VERTCAL = true;
+  public static final boolean VERTICAL = true;
   public static final boolean HORIZONTAL = false;
   public static final boolean LEFT = true;
   public static final boolean RIGHT = false;
@@ -204,8 +204,10 @@ public class Picture extends SimplePicture
   }
   
   /**
-   * Mirrors the image both vertically and horizontally.
-   * @param mirrorVertFirst Determines if the image is mirrored vertically or horizontally first.
+   * Mirrors an image both vertically and horizontally.
+   * @param mirrorVertFirst Determines if the picture is mirrored vertically first or second.
+   * @param mirrorLeft Determines the direction of the vertical mirror.
+   * @param mirrorTop Determines the direction of the horizontal mirror.
    */
   public void mirrorBoth(boolean mirrorVertFirst, boolean mirrorLeft, boolean mirrorTop)
   {
