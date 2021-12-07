@@ -18,6 +18,24 @@ public class PictureTester
     beach.explore();
   }
   
+  /** Method to test zeroRed */
+  public static void testZeroRed()
+  {
+	  Picture gengar = new Picture("gengar.png");
+	  gengar.explore();
+	  gengar.zeroRed();
+	  gengar.explore();
+  }
+  
+  /** Method to test zeroGreen */
+  public static void testZeroGreen()
+  {
+	  Picture temple = new Picture("temple.jpg");
+	  temple.explore();
+	  temple.zeroGreen();
+	  temple.explore();
+  }
+  
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
@@ -56,30 +74,32 @@ public class PictureTester
     * method in Java */
   public static void main(String[] args)
   {
-    // uncomment a call here to run a test
-    // and comment out the ones you don't want
-    // to run
-    testZeroBlue();
-    //testKeepOnlyBlue();
-    //testKeepOnlyRed();
-    //testKeepOnlyGreen();
-    //testNegate();
-    //testGrayscale();
-    //testFixUnderwater();
-    testMirrorVertical();
-    //testMirrorTemple();
-    //testMirrorArms();
-    //testMirrorGull();
-    //testMirrorDiagonal();
-    //testCollage();
-    //testCopy();
-    //testEdgeDetection();
-    //testEdgeDetection2();
-    //testChromakey();
-    //testEncodeAndDecode();
-    //testGetCountRedOverValue(250);
-    //testSetRedToHalfValueInTopHalf();
-    //testClearBlueOverValue(200);
-    //testGetAverageForColumn(0);
+//     uncomment a call here to run a test
+//     and comment out the ones you don't want
+//     to run
+//    testZeroBlue();
+//    testZeroRed();
+	  testZeroGreen();
+//    testKeepOnlyBlue();
+//    testKeepOnlyRed();
+//    testKeepOnlyGreen();
+//    testNegate();
+//    testGrayscale();
+//    testFixUnderwater();
+//    testMirrorVertical();
+//    testMirrorTemple();
+//    testMirrorArms();
+//    testMirrorGull();
+//    testMirrorDiagonal();
+//    testCollage();
+//    testCopy();
+//    testEdgeDetection();
+//    testEdgeDetection2();
+//    testChromakey();
+//    testEncodeAndDecode();
+//    testGetCountRedOverValue(250);
+//    testSetRedToHalfValueInTopHalf();
+//    testClearBlueOverValue(200);
+//    testGetAverageForColumn(0);
   }
 }
