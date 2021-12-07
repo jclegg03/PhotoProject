@@ -17,6 +17,13 @@ import java.util.List; // resolves problem with java.awt.List and java.util.List
  */
 public class Picture extends SimplePicture 
 {
+  public static final boolean VERTCAL = true;
+  public static final boolean HORIZONTAL = false;
+  public static final boolean LEFT = true;
+  public static final boolean RIGHT = false;
+  public static final boolean TOP = true;
+  public static final boolean BOTTOM = false;
+  
   ///////////////////// constructors //////////////////////////////////
   
   /**
@@ -150,7 +157,7 @@ public class Picture extends SimplePicture
   /** Method that mirrors the picture around a 
     * vertical mirror in the center of the picture
     * from left to right */
-  public void mirrorVertical()
+  public void mirrorVertical(boolean mirrorLeft)
   {
     Pixel[][] pixels = this.getPixels2D();
     Pixel leftPixel = null;
@@ -160,23 +167,57 @@ public class Picture extends SimplePicture
     {
       for (int col = 0; col < width / 2; col++)
       {
-        leftPixel = pixels[row][col];
-        rightPixel = pixels[row][width - 1 - col];
-        rightPixel.setColor(leftPixel.getColor());
+    	if(mirrorLeft)
+    	{
+    		leftPixel = pixels[row][col];
+            rightPixel = pixels[row][width - 1 - col];
+            rightPixel.setColor(leftPixel.getColor());
+    	}
+    	else
+    	{
+	        leftPixel = pixels[row][col];
+	        rightPixel = pixels[row][width - 1 - col];
+	        leftPixel.setColor(rightPixel.getColor());
+    	}
       }
     } 
   }
   
   /** Method to mirror the image horizontally */
-  public void mirrorHorizontal()
+  public void mirrorHorizontal(boolean mirrorTop)
   {
 	  Pixel[][] pixels = this.getPixels2D();
-	  for(int row = 0; row < pixels.length; row++)
+	  for(int row = 0; row < pixels.length / 2; row++)
 	  {
 		  for(int col = 0; col < pixels[row].length; col++)
 		  {
-			  pixels[pixels.length - row - 1][col].setColor(pixels[row][col].getColor());
+			  if(mirrorTop)
+			  {
+				  pixels[pixels.length - row - 1][col].setColor(pixels[row][col].getColor());
+			  }
+			  else
+			  {
+				  pixels[row][col].setColor(pixels[pixels.length - row - 1][col].getColor());
+			  }
 		  }
+	  }
+  }
+  
+  /**
+   * Mirrors the image both vertically and horizontally.
+   * @param mirrorVertFirst Determines if the image is mirrored vertically or horizontally first.
+   */
+  public void mirrorBoth(boolean mirrorVertFirst, boolean mirrorLeft, boolean mirrorTop)
+  {
+	  if(mirrorVertFirst)
+	  {
+		  mirrorVertical(mirrorLeft);
+		  mirrorHorizontal(mirrorTop);
+	  }
+	  else
+	  {
+		  mirrorHorizontal(mirrorTop);
+		  mirrorVertical(mirrorLeft);
 	  }
   }
   
@@ -248,7 +289,7 @@ public class Picture extends SimplePicture
     this.copy(flowerNoBlue,300,0);
     this.copy(flower1,400,0);
     this.copy(flower2,500,0);
-    this.mirrorVertical();
+    this.mirrorVertical(LEFT);
     this.write("collage.jpg");
   }
   
