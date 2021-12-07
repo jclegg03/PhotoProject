@@ -36,6 +36,15 @@ public class PictureTester
 	  temple.explore();
   }
   
+  /** Method to test the keepOnlyBlue */
+  public static void testKeepOnlyBlue()
+  {
+	  Picture gorge = new Picture("gorge.jpg");
+	  gorge.explore();
+	  gorge.keepOnlyBlue();
+	  gorge.explore();
+  }
+  
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
@@ -79,8 +88,8 @@ public class PictureTester
 //     to run
 //    testZeroBlue();
 //    testZeroRed();
-	  testZeroGreen();
-//    testKeepOnlyBlue();
+//	  testZeroGreen();
+    testKeepOnlyBlue();
 //    testKeepOnlyRed();
 //    testKeepOnlyGreen();
 //    testNegate();
