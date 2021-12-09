@@ -383,6 +383,20 @@ public class Picture extends SimplePicture
 	  return count;
   }
   
+  /** Method to set the green value to half its current value in the top half of the picture */
+  public void setGreenToHalfValueInTopHalf()
+  {
+	  Pixel[][] image = this.getPixels2D();
+	  
+	  int rows = image.length / 2;
+	  for(int index = 0; index < rows; index++)
+	  {
+		  for(Pixel pixel : image[index])
+		  {
+			  pixel.setGreen(pixel.getGreen() / 2);
+		  }
+	  }
+  }
   
   /* Main method for testing - each class in Java can have a main 
    * method 

@@ -135,6 +135,15 @@ public class PictureTester
 	  System.out.println(lion.getCountRedOverValue(24));
   }
   
+  /** Method to test setGreenToHalfValueInTopHalf */
+  public static void testSetGreenToHalfValueInTopHalf()
+  {
+	  Picture beach = new Picture("beach.jpg");
+	  beach.explore();
+	  beach.setGreenToHalfValueInTopHalf();
+	  beach.explore();
+  }
+  
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -168,6 +177,7 @@ public class PictureTester
 //    testSetRedToHalfValueInTopHalf();
 //    testClearBlueOverValue(200);
 //    testGetAverageForColumn(0);
-	  testGetCountRedOverValue();
+//	  testGetCountRedOverValue();
+	  testSetGreenToHalfValueInTopHalf();
   }
 }
