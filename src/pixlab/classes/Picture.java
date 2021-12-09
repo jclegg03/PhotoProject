@@ -416,6 +416,36 @@ public class Picture extends SimplePicture
 	  }
   }
   
+  /**
+   * Method to get the average color of a given column of pixels.
+   * @param column The column to be analyzed.
+   * @return The average color of the column.
+   */
+  public Color getAverageForColumn(int column)
+  {
+	  Pixel[][] image = this.getPixels2D();
+	  int red = 0;
+	  int green = 0;
+	  int blue = 0;
+	  int total = image[column].length;
+	  
+	  for(Pixel pixel : image[column])
+	  {
+		  red += Math.pow(pixel.getRed(), 2);
+		  green += Math.pow(pixel.getGreen(), 2);
+		  blue += Math.pow(pixel.getBlue(), 2);
+	  }
+	  
+	  red /= total;
+	  red = (int) Math.sqrt(red);
+	  green /= total;
+	  green = (int) Math.sqrt(green);
+	  blue /= total;
+	  blue = (int) Math.sqrt(blue);
+	  
+	  return new Color(red, green, blue);
+  }
+  
   /* Main method for testing - each class in Java can have a main 
    * method 
    */

@@ -1,4 +1,7 @@
 package pixlab.classes;
+
+import java.awt.Color;
+
 /**
  * This class contains class (static) methods
  * that will help you test the Picture class 
@@ -156,6 +159,17 @@ public class PictureTester
 	  door.explore();
   }
   
+  /**
+   * Method to test getAverageForColumn
+   * @param column The column which will be averaged.
+   */
+  public static void testGetAverageForColumn(int column)
+  {
+	  Picture annie = new Picture("annie.jpg");
+	  Color average = annie.getAverageForColumn(column);
+	  System.out.println("The average color is: Red: " + average.getRed() + " Green: " + average.getGreen() + " Blue: " + average.getBlue() + ".");
+  }
+  
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -187,8 +201,8 @@ public class PictureTester
 //    testEncodeAndDecode();
 //    testGetCountRedOverValue(250);
 //    testSetRedToHalfValueInTopHalf();
-    testClearBlueOverValue(200);
-//    testGetAverageForColumn(0);
+//    testClearBlueOverValue(200);
+    testGetAverageForColumn(0);
 //	  testGetCountRedOverValue();
 //	  testSetGreenToHalfValueInTopHalf();
   }
