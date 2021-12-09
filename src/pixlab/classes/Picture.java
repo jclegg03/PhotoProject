@@ -360,6 +360,24 @@ public class Picture extends SimplePicture
 	  }
   }
   
+  public int getCountRedOverValue(int value)
+  {
+	  int count = 0;
+	  
+	  for(Pixel[] pixels : this.getPixels2D())
+	  {
+		  for(Pixel pixel : pixels)
+		  {
+			  if(pixel.getRed() > value)
+			  {
+				  count++;
+			  }
+		  }
+	  }
+	  
+	  return count;
+  }
+  
   
   /* Main method for testing - each class in Java can have a main 
    * method 

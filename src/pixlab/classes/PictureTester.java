@@ -126,6 +126,13 @@ public class PictureTester
 	  arch.explore();
   }
   
+  public static void testGetCountRedOverValue()
+  {
+	  Picture lion = new Picture("femaleLionAndHall.jpg");
+	  
+	  System.out.println(lion.getCountRedOverValue(24));
+  }
+  
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -139,7 +146,7 @@ public class PictureTester
 //    testKeepOnlyBlue();
 //    testKeepOnlyRed();
 //    testKeepOnlyGreen();
-    testNegate();
+//    testNegate();
 //    testGrayscale();
 //    testFixUnderwater();
 //    testMirrorVertical();
@@ -159,5 +166,6 @@ public class PictureTester
 //    testSetRedToHalfValueInTopHalf();
 //    testClearBlueOverValue(200);
 //    testGetAverageForColumn(0);
+	  testGetCountRedOverValue();
   }
 }
