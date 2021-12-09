@@ -322,6 +322,18 @@ public class Picture extends SimplePicture
     }
   }
   
+  /** Method to negate an image */
+  public void negate()
+  {
+	  for(Pixel[] pixels : this.getPixels2D())
+	  {
+		  for(Pixel pixel : pixels)
+		  {
+			  pixel.setColor(new Color(255 - pixel.getRed(), 255 - pixel.getGreen(), 255 - pixel.getBlue()));
+		  }
+	  }
+  }
+  
   
   /* Main method for testing - each class in Java can have a main 
    * method 
@@ -338,5 +350,4 @@ public class Picture extends SimplePicture
     annie.zeroBlue();
     annie.explore();
   }
-  
 } // this } is the end of class Picture, put all new methods before this

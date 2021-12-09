@@ -7,7 +7,8 @@ import java.io.*;
 import java.awt.geom.*;
 
 /**
- * A class that represents a simple picture.  A simple picture may have
+ * A class that represents a simple picture.  A simple picture may h
+
  * an associated file name and a title.  A simple picture has pixels, 
  * width, and height.  A simple picture uses a BufferedImage to 
  * hold the pixels.  You can show a simple picture in a 

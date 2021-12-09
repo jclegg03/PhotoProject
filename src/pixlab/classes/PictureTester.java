@@ -115,6 +115,16 @@ public class PictureTester
     swan.explore();
   }
   
+  public static void testNegate()
+  {
+	  Picture arch = new Picture("arch.jpg");
+	  arch.explore();
+	  arch.negate();
+	  arch.explore();
+	  
+	  arch.write("negated arch.jpg");
+  }
+  
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -128,12 +138,12 @@ public class PictureTester
 //    testKeepOnlyBlue();
 //    testKeepOnlyRed();
 //    testKeepOnlyGreen();
-//    testNegate();
+    testNegate();
 //    testGrayscale();
 //    testFixUnderwater();
 //    testMirrorVertical();
 //	  testMirrorHorizontal();
-	  testMirrorBoth();
+//	  testMirrorBoth();
 //    testMirrorTemple();
 //    testMirrorArms();
 //    testMirrorGull();
