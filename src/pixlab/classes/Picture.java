@@ -398,6 +398,24 @@ public class Picture extends SimplePicture
 	  }
   }
   
+  /**
+   * Method to remove all blue from pixels with more blue than a given value
+   * @param value The maximum desired blue value. All other blue will be removed.
+   */
+  public void clearBlueOverValue(int value)
+  {
+	  for(Pixel[] pixels : this.getPixels2D())
+	  {
+		  for(Pixel pixel : pixels)
+		  {
+			  if(pixel.getBlue() > value)
+			  {
+				  pixel.setBlue(0);
+			  }
+		  }
+	  }
+  }
+  
   /* Main method for testing - each class in Java can have a main 
    * method 
    */

@@ -144,6 +144,18 @@ public class PictureTester
 	  beach.explore();
   }
   
+  /**
+   *  Method to test clearBlueOverValue
+   *  @param value The maximum desired blue value. All other blue will be set to 0.
+   */
+  public static void testClearBlueOverValue(int value)
+  {
+	  Picture door = new Picture("thruDoor.jpg");
+	  door.explore();
+	  door.clearBlueOverValue(value);
+	  door.explore();
+  }
+  
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -175,9 +187,9 @@ public class PictureTester
 //    testEncodeAndDecode();
 //    testGetCountRedOverValue(250);
 //    testSetRedToHalfValueInTopHalf();
-//    testClearBlueOverValue(200);
+    testClearBlueOverValue(200);
 //    testGetAverageForColumn(0);
 //	  testGetCountRedOverValue();
-	  testSetGreenToHalfValueInTopHalf();
+//	  testSetGreenToHalfValueInTopHalf();
   }
 }
