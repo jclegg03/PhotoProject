@@ -360,6 +360,11 @@ public class Picture extends SimplePicture
 	  }
   }
   
+  /**
+   * Method to determine the amount of pixels that are more red than a given value
+   * @param value How red the pixels must be to be measured
+   * @return The number of pixels above the value.
+   */
   public int getCountRedOverValue(int value)
   {
 	  int count = 0;

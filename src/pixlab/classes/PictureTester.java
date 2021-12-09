@@ -115,6 +115,7 @@ public class PictureTester
     swan.explore();
   }
   
+  /** Method to test negate */
   public static void testNegate()
   {
 	  Picture arch = new Picture("arch.jpg");
@@ -126,6 +127,7 @@ public class PictureTester
 	  arch.explore();
   }
   
+  /** Method to test getCountRedOverValue */
   public static void testGetCountRedOverValue()
   {
 	  Picture lion = new Picture("femaleLionAndHall.jpg");
