@@ -122,7 +122,8 @@ public class PictureTester
 	  arch.negate();
 	  arch.explore();
 	  
-	  arch.write("negated arch.jpg");
+	  arch.negate(25, 50, 50, 100);
+	  arch.explore();
   }
   
   /** Main method for testing.  Every class can have a main

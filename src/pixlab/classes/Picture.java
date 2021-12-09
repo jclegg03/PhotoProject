@@ -334,6 +334,32 @@ public class Picture extends SimplePicture
 	  }
   }
   
+  /**
+   * Method to negate part of an image
+   * @param startRow The first row to negate
+   * @param endRow The last row to negate
+   * @param startCol The first column to negate
+   * @param endCol The last column to negate
+   */
+  public void negate(int startRow, int endRow, int startCol, int endCol)
+  {
+	  Pixel[][] image = this.getPixels2D();
+	  
+	  if(startRow >= 0 && startRow <= endRow && startRow < image.length)
+	  {
+		  for(int row = startRow; row < endRow; row++)
+		  {
+			  if(startCol >= 0 && startCol <= endCol && startCol < image[row].length)
+			  {
+				  for(int col = startCol; col < endCol; col++)
+				  {
+					  image[row][col].setColor(new Color(255 - image[row][col].getRed(), 255 - image[row][col].getGreen(), 255 - image[row][col].getBlue()));
+				  }
+			  }
+		  }
+	  }
+  }
+  
   
   /* Main method for testing - each class in Java can have a main 
    * method 
