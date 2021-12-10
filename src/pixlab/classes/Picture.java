@@ -483,6 +483,27 @@ public class Picture extends SimplePicture
 	  return average;
   }
   
+  /** Removes all pixels that are blue and not much of any other color */
+  public void chromakey()
+  {
+	  Pixel[][] image = this.getPixels2D();
+	  
+	  for(Pixel[] pixels : image)
+	  {
+		  for(Pixel pixel : pixels)
+		  {
+			  Color pixelColor = pixel.getColor();
+			  if(pixelColor.getBlue() >= 1)
+			  {
+				  if(pixelColor.getRed() < 40 && pixelColor.getGreen() < 53)
+				  {
+					  pixel.setColor(new Color(0, 0, 0));
+				  }
+			  }
+		  }
+	  }
+  }
+  
   /* Main method for testing - each class in Java can have a main 
    * method 
    */

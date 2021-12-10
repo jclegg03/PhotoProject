@@ -170,6 +170,16 @@ public class PictureTester
 	  System.out.println("The average color is: Red: " + average.getRed() + " Green: " + average.getGreen() + " Blue: " + average.getBlue() + ".");
   }
   
+  /** Method to test chromakey */
+  public static void testChromakey()
+  {
+	  Picture blue = new Picture("blue-mark.jpg");
+	  
+	  blue.explore();
+	  blue.chromakey();
+	  blue.explore();
+  }
+  
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -197,12 +207,12 @@ public class PictureTester
 //    testCopy();
 //    testEdgeDetection();
 //    testEdgeDetection2();
-//    testChromakey();
+    testChromakey();
 //    testEncodeAndDecode();
 //    testGetCountRedOverValue(250);
 //    testSetRedToHalfValueInTopHalf();
 //    testClearBlueOverValue(200);
-    testGetAverageForColumn(0);
+//    testGetAverageForColumn(0);
 //	  testGetCountRedOverValue();
 //	  testSetGreenToHalfValueInTopHalf();
   }
