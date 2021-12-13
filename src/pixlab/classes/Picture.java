@@ -94,7 +94,8 @@ public class Picture extends SimplePicture
     
   }
   
-  /** Method to set the blue to 0 */
+  /** Method to set the blue to 0 
+   * @author Jay Clegg*/
   public void zeroBlue()
   {
     Pixel[][] pixels = this.getPixels2D();
@@ -420,6 +421,7 @@ public class Picture extends SimplePicture
    * Method to get the average color of a given column of pixels.
    * @param column The column to be analyzed.
    * @return The average color of the column.
+   * @author Jay Clegg
    */
   public Color getAverageForColumn(int column)
   {
@@ -453,6 +455,7 @@ public class Picture extends SimplePicture
    * @param startCol The first column to be analyzed.
    * @param endCol The last column to be analyzed.
    * @return
+   * @author Jay Clegg
    */
   private Color getAverageColorInRowRange(Pixel[][] pixels, int row, int startCol, int endCol)
   {
@@ -484,22 +487,129 @@ public class Picture extends SimplePicture
   }
   
   /** Removes all pixels that are blue and not much of any other color */
-  public void chromakey()
+  public void chromakey(Picture background)
   {
 	  Pixel[][] image = this.getPixels2D();
+	  Pixel[][] bg = background.getPixels2D();
+	  int bgRowCenter = bg.length / 2;
+	  int bgColCenter = bg[0].length / 2;
+	  int averageRow = 0;
+	  int averageCol = 0;
+	  int loopCount = 0;
 	  
-	  for(Pixel[] pixels : image)
+	  int bgRow = 0;
+	  int bgCol = 0;
+	  
+	  for(int row = 0; row < image.length; row++)
 	  {
-		  for(Pixel pixel : pixels)
+		  for(int col = 0; col < image[row].length; col++)
 		  {
-			  Color pixelColor = pixel.getColor();
-			  if(pixelColor.getBlue() >= 1)
+			  Color pixelColor = image[row][col].getColor();
+			  if(pixelColor.getBlue() >= 20)
 			  {
 				  if(pixelColor.getRed() < 40 && pixelColor.getGreen() < 53)
 				  {
-					  pixel.setColor(new Color(0, 0, 0));
+					  averageRow += row;
+					  averageCol += col;
+					  loopCount++;
 				  }
 			  }
+		  }
+	  }
+	  
+	  averageRow /= loopCount;
+	  averageCol /= loopCount;
+	  
+	  bgRow = bgRowCenter;
+	  boolean maxSize = false;
+	  for(int row = averageRow; row < image.length; row++)
+	  {
+		  bgCol = bgColCenter;
+		  for(int col = averageCol; col < image[row].length; col++)
+		  {
+			  Color color = image[row][col].getColor();
+			  double closeFactor = image[row][col].colorDistance(Color.BLUE);
+			  if(color.getBlue() >= 20)
+			  {
+				  if(color.getRed() < 30 && color.getGreen() < 53 && bgCol < bg[bgRow].length)
+				  {
+					  if(! maxSize)
+					  {
+						  image[row][col].setColor(bg[bgRow][bgCol].getColor());
+					  }
+				  }
+			  }
+			  bgCol++;
+		  }
+		  bgCol = 0;
+		  for(int col = 0; col < averageCol; col++)
+		  {
+			  Color color = image[row][col].getColor();
+			  if(color.getBlue() >= 1)
+			  {
+				  if(color.getRed() < 40 && color.getGreen() < 53)
+				  {
+					  if(! maxSize)
+					  {
+						  image[row][col].setColor(bg[bgRow][bgCol].getColor());
+					  }
+				  }
+			  }
+			  bgCol++;
+		  }
+		  if(bgRow < bg.length - 1)
+		  {
+			  bgRow++;
+		  }
+		  else
+		  {
+			  maxSize = true;
+		  }
+	  }
+	  
+	  bgRow = 0;
+	  maxSize = false;
+	  for(int row = 0; row < averageRow; row++)
+	  {
+		  bgCol = bgColCenter;
+		  for(int col = averageCol; col < image[row].length; col++)
+		  {
+			  Color color = image[row][col].getColor();
+			  if(color.getBlue() >= 20)
+			  {
+				  if(color.getRed() < 30 && color.getGreen() < 53 && bgCol < bg[bgRow].length)
+				  {
+					  if(! maxSize)
+					  {
+						  image[row][col].setColor(bg[bgRow][bgCol].getColor());
+					  }
+				  }
+			  }
+			  bgCol++;
+		  }
+		  bgCol = 0;
+		  for(int col = 0; col < averageCol; col++)
+		  {
+			  Color color = image[row][col].getColor();
+			  if(color.getBlue() >= 1)
+			  {
+				  if(color.getRed() < 40 && color.getGreen() < 53)
+				  {
+					  if(! maxSize)
+					  {
+						  image[row][col].setColor(bg[bgRow][bgCol].getColor());
+					  }
+				  }
+			  }
+			  bgCol++;
+		  }
+		  if(bgRow < bg.length - 1)
+		  {
+			  bgRow++;
+		  }
+		  else
+		  {
+			  maxSize = true;
 		  }
 	  }
   }

@@ -174,9 +174,11 @@ public class PictureTester
   public static void testChromakey()
   {
 	  Picture blue = new Picture("blue-mark.jpg");
+	  Picture bg = new Picture("temple.jpg");	  
 	  
 	  blue.explore();
-	  blue.chromakey();
+	  bg.explore();
+	  blue.chromakey(bg);
 	  blue.explore();
   }
   
