@@ -108,7 +108,8 @@ public class Picture extends SimplePicture
     }
   }
   
-  /** Method to set the red to 0 */
+  /** Method to set the red to 0 
+   * @author Jay Clegg*/
   public void zeroRed()
   {
 	  Pixel[][] pixels = this.getPixels2D();
@@ -121,7 +122,8 @@ public class Picture extends SimplePicture
 	  }
   }
   
-  /** Method to set the green to 0 */
+  /** Method to set the green to 0 
+   * @author Jay Clegg*/
   public void zeroGreen()
   {
 	  Pixel[][] pixels = this.getPixels2D();
@@ -134,21 +136,24 @@ public class Picture extends SimplePicture
 	  }
   }
   
-  /** Method to keep only blue */
+  /** Method to keep only blue 
+   * @author Jay Clegg*/
   public void keepOnlyBlue()
   {
 	  zeroRed();
 	  zeroGreen();
   }
   
-  /** Method to keep only green */
+  /** Method to keep only green 
+   * @author Jay Clegg*/
   public void keepOnlyGreen()
   {
 	  zeroRed();
 	  zeroBlue();
   }
   
-  /** Method to keep only red */
+  /** Method to keep only red 
+   * @author Jay Clegg*/
   public void keepOnlyRed()
   {
 	  zeroGreen();
@@ -184,7 +189,8 @@ public class Picture extends SimplePicture
     } 
   }
   
-  /** Method to mirror the image horizontally */
+  /** Method to mirror the image horizontally 
+   * @author Jay Clegg*/
   public void mirrorHorizontal(boolean mirrorTop)
   {
 	  Pixel[][] pixels = this.getPixels2D();
@@ -209,6 +215,7 @@ public class Picture extends SimplePicture
    * @param mirrorVertFirst Determines if the picture is mirrored vertically first or second.
    * @param mirrorLeft Determines the direction of the vertical mirror.
    * @param mirrorTop Determines the direction of the horizontal mirror.
+   * @author Jay Clegg
    */
   public void mirrorBoth(boolean mirrorVertFirst, boolean mirrorLeft, boolean mirrorTop)
   {
@@ -323,7 +330,8 @@ public class Picture extends SimplePicture
     }
   }
   
-  /** Method to negate an image */
+  /** Method to negate an image 
+   * @author Jay Clegg*/
   public void negate()
   {
 	  for(Pixel[] pixels : this.getPixels2D())
@@ -341,6 +349,7 @@ public class Picture extends SimplePicture
    * @param endRow The last row to negate
    * @param startCol The first column to negate
    * @param endCol The last column to negate
+   * @author Jay Clegg
    */
   public void negate(int startRow, int endRow, int startCol, int endCol)
   {
@@ -365,6 +374,7 @@ public class Picture extends SimplePicture
    * Method to determine the amount of pixels that are more red than a given value
    * @param value How red the pixels must be to be measured
    * @return The number of pixels above the value.
+   * @author Jay Clegg
    */
   public int getCountRedOverValue(int value)
   {
@@ -384,7 +394,8 @@ public class Picture extends SimplePicture
 	  return count;
   }
   
-  /** Method to set the green value to half its current value in the top half of the picture */
+  /** Method to set the green value to half its current value in the top half of the picture
+   * @author Jay Clegg */
   public void setGreenToHalfValueInTopHalf()
   {
 	  Pixel[][] image = this.getPixels2D();
@@ -402,6 +413,7 @@ public class Picture extends SimplePicture
   /**
    * Method to remove all blue from pixels with more blue than a given value
    * @param value The maximum desired blue value. All other blue will be removed.
+   * @author Jay Clegg
    */
   public void clearBlueOverValue(int value)
   {
@@ -454,7 +466,7 @@ public class Picture extends SimplePicture
    * @param row The row which will be analyzed.
    * @param startCol The first column to be analyzed.
    * @param endCol The last column to be analyzed.
-   * @return
+   * @return The average color of the pixels
    * @author Jay Clegg
    */
   private Color getAverageColorInRowRange(Pixel[][] pixels, int row, int startCol, int endCol)
@@ -486,7 +498,9 @@ public class Picture extends SimplePicture
 	  return average;
   }
   
-  /** Removes all pixels that are blue and not much of any other color */
+  /** Removes all pixels that are blue and not much of any other color.
+   * @param background The background image to be displayed on the green screen.
+   * @author Jay Clegg */
   public void chromakey(Picture background)
   {
 	  Pixel[][] image = this.getPixels2D();

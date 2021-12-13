@@ -75,7 +75,8 @@ public class PictureTester
     caterpillar.explore();
   }
   
-  /** Method to test mirrorHorizontal */
+  /** Method to test mirrorHorizontal 
+   * @author Jay Clegg*/
   public static void testMirrorHorizontal()
   {
 	  Picture caterpillar = new Picture("caterpillar.jpg");
@@ -84,7 +85,8 @@ public class PictureTester
 	  caterpillar.explore();
   }
   
-  /** Method to test the mirrorBoth */
+  /** Method to test the mirrorBoth 
+   * @author Jay Clegg*/
   public static void testMirrorBoth()
   {
 	  Picture caterpillar = new Picture("caterpillar.jpg");
@@ -110,7 +112,8 @@ public class PictureTester
     canvas.explore();
   }
   
-  /** Method to test edgeDetection */
+  /** Method to test edgeDetection 
+   * @author Jay Clegg*/
   public static void testEdgeDetection()
   {
     Picture swan = new Picture("swan.jpg");
@@ -118,7 +121,8 @@ public class PictureTester
     swan.explore();
   }
   
-  /** Method to test negate */
+  /** Method to test negate 
+   * @author Jay Clegg*/
   public static void testNegate()
   {
 	  Picture arch = new Picture("arch.jpg");
@@ -130,7 +134,8 @@ public class PictureTester
 	  arch.explore();
   }
   
-  /** Method to test getCountRedOverValue */
+  /** Method to test getCountRedOverValue 
+   * @author Jay Clegg*/
   public static void testGetCountRedOverValue()
   {
 	  Picture lion = new Picture("femaleLionAndHall.jpg");
@@ -138,7 +143,8 @@ public class PictureTester
 	  System.out.println(lion.getCountRedOverValue(24));
   }
   
-  /** Method to test setGreenToHalfValueInTopHalf */
+  /** Method to test setGreenToHalfValueInTopHalf 
+   * @author Jay Clegg*/
   public static void testSetGreenToHalfValueInTopHalf()
   {
 	  Picture beach = new Picture("beach.jpg");
@@ -150,6 +156,7 @@ public class PictureTester
   /**
    *  Method to test clearBlueOverValue
    *  @param value The maximum desired blue value. All other blue will be set to 0.
+   *  @author Jay Clegg
    */
   public static void testClearBlueOverValue(int value)
   {
@@ -162,6 +169,7 @@ public class PictureTester
   /**
    * Method to test getAverageForColumn
    * @param column The column which will be averaged.
+   * @author Jay Clegg
    */
   public static void testGetAverageForColumn(int column)
   {
@@ -170,7 +178,8 @@ public class PictureTester
 	  System.out.println("The average color is: Red: " + average.getRed() + " Green: " + average.getGreen() + " Blue: " + average.getBlue() + ".");
   }
   
-  /** Method to test chromakey */
+  /** Method to test chromakey 
+   * @author Jay Clegg*/
   public static void testChromakey()
   {
 	  Picture blue = new Picture("blue-mark.jpg");
