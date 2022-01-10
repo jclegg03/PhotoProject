@@ -178,17 +178,17 @@ public class PictureTester
 	  System.out.println("The average color is: Red: " + average.getRed() + " Green: " + average.getGreen() + " Blue: " + average.getBlue() + ".");
   }
   
-  /** Method to test chromakey 
+  /** Method to test chromakey
    * @author Jay Clegg*/
   public static void testChromakey()
   {
-	  Picture blue = new Picture("blue-mark.jpg");
-	  Picture bg = new Picture("temple.jpg");	  
+	  Picture old = new Picture("beach.jpg");
+	  Picture bg = new Picture("moon-surface.jpg");	 
 	  
-	  blue.explore();
+	  old.explore();
 	  bg.explore();
-	  blue.chromakey(bg);
-	  blue.explore();
+	  old.betterChromakey(new Color(164, 204, 229), bg, 35.0);
+	  old.explore();
   }
   
   /** Main method for testing.  Every class can have a main

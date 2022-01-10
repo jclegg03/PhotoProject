@@ -628,6 +628,25 @@ public class Picture extends SimplePicture
 	  }
   }
   
+  public void betterChromakey(Color replace, Picture background, double distance)
+  {
+	  Pixel[][] picture = this.getPixels2D();
+	  Pixel[][] bg = background.getPixels2D();
+	  
+	  for(int row = 0; row < picture.length; row++)
+	  {
+		  for(int col = 0; col < picture[row].length; col++)
+		  {
+			  Pixel current = picture[row][col];
+			  
+			  if(current.colorDistance(replace) < distance)
+			  {
+				  current.setColor(bg[row][col].getColor());
+			  }
+		  }
+	  }
+  }
+  
   /* Main method for testing - each class in Java can have a main 
    * method 
    */
